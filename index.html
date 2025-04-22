@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioProspecta - Microbiologia Agrícola</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#077272',
+                            dark: '#033030',
+                            light: '#0a9d9d',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .section {
+            scroll-margin-top: 80px;
+        }
+        .nav-link.active {
+            color: #0a9d9d;
+            font-weight: 600;
+            position: relative;
+        }
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #0a9d9d;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(7, 114, 114, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans bg-white text-gray-800">
+    <!-- Cabeçalho -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center scroll-smooth">
+                <img src="./img/BioProspecta.png" alt="BioProspecta" class="h-15">
+            </a>
+
+            <!-- Menu para desktop -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 font-medium hover:text-primary transition duration-300">Início</a>
+                <a href="#services" class="nav-link text-gray-700 font-medium hover:text-primary transition duration-300">Serviços</a>
+                <a href="#about" class="nav-link text-gray-700 font-medium hover:text-primary transition duration-300">Quem Somos</a>
+                <a href="#contact" class="nav-link text-gray-700 font-medium hover:text-primary transition duration-300">Contato</a>
+            </nav>
+
+            <!-- Botão do menu mobile -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 text-3xl">
+                <i class='bx bx-menu' id="menu-icon"></i>
+                <i class='bx bx-x hidden' id="close-icon"></i>
+            </button>
+        </div>
+
+        <!-- Menu mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full transition-all duration-300 overflow-hidden border-t">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#home" class="nav-link text-gray-700 font-medium py-2 hover:text-primary transition scroll-smooth">Início</a>
+                <a href="#services" class="nav-link text-gray-700 font-medium py-2 hover:text-primary transition scroll-smooth">Serviços</a>
+                <a href="#about" class="nav-link text-gray-700 font-medium py-2 hover:text-primary transition scroll-smooth">Quem Somos</a>
+                <a href="#contact" class="nav-link text-gray-700 font-medium py-2 hover:text-primary transition scroll-smooth">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <!-- Seção Hero -->
+        <section id="home" class="section min-h-screen flex items-center justify-center bg-white pt-20">
+            <div class="container mx-auto px-4 py-24">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="animate-fade-in">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                            <span class="text-primary">Soluções Sustentáveis</span><br>
+                            através da Microbiologia
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-lg">
+                            Revolucionando a agricultura e biotecnologia com pesquisa e desenvolvimento de microrganismos para um futuro mais sustentável.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#services" class="bg-primary hover:bg-primary-light text-white font-medium py-3 px-8 rounded-lg transition duration-300 shadow-md hover:shadow-lg scroll-smooth">
+                                Nossos Serviços
+                            </a>
+                            <a href="#contact" class="border border-primary text-primary hover:bg-primary/10 font-medium py-3 px-8 rounded-lg transition duration-300 scroll-smooth">
+                                Fale Conosco
+                            </a>
+                        </div>
+                    </div>
+                    <div class="animate-slide-up hidden md:block">
+                        <div class="bg-gray-100 rounded-xl p-4 shadow-inner">
+                            <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
+                                <!-- Placeholder para imagem/vídeo -->
+                                <div class="w-full h-full flex items-center justify-center text-gray-400">
+                                    <i class='bx bx-microscope text-8xl'>
+
+                                        <img src="./img/home_micro_search.png" alt="BioProspecta" class="h-full">
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Serviços -->
+        <section id="services" class="section py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="text-primary font-semibold">NOSSOS SERVIÇOS</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">Soluções em Microbiologia Agrícola</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto mt-6">
+                        Serviços especializados para desenvolvimento de produtos biológicos e pesquisa microbiológica.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Serviço 1 -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition duration-300 border border-gray-100">
+                        <div class="text-primary text-4xl mb-6">
+                            <i class='bx bx-search-alt'></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Bioprospecção Microbiana</h3>
+                        <p class="text-gray-600">
+                            Isolamento e caracterização de microrganismos promissores para aplicação agrícola.
+                        </p>
+                    </div>
+                    
+                    <!-- Serviço 2 -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition duration-300 border border-gray-100">
+                        <div class="text-primary text-4xl mb-6">
+                            <i class='bx bx-test-tube'></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Banco de Microrganismos</h3>
+                        <p class="text-gray-600">
+                            Preservação de cepas microbianas com características valiosas para biotecnologia.
+                        </p>
+                    </div>
+                    
+                    <!-- Serviço 3 -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition duration-300 border border-gray-100">
+                        <div class="text-primary text-4xl mb-6">
+                            <i class='bx bx-conversation'></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Consultoria Técnica</h3>
+                        <p class="text-gray-600">
+                            Assessoria especializada em técnicas microbiológicas para projetos agrícolas.
+                        </p>
+                    </div>
+                    
+                    <!-- Serviço 4 -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition duration-300 border border-gray-100">
+                        <div class="text-primary text-4xl mb-6">
+                            <i class='bx bx-leaf'></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Produtos Biológicos</h3>
+                        <p class="text-gray-600">
+                            Desenvolvimento de biofertilizantes e biopesticidas para agricultura sustentável.
+                        </p>
+                    </div>
+                    
+                    <!-- Serviço 5 -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition duration-300 border border-gray-100">
+                        <div class="text-primary text-4xl mb-6">
+                            <i class='bx bx-check-shield'></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Testes de Eficácia</h3>
+                        <p class="text-gray-600">
+                            Avaliação de produtos biológicos em condições de campo e laboratório.
+                        </p>
+                    </div>
+                    
+                    <!-- Serviço 6 -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition duration-300 border border-gray-100">
+                        <div class="text-primary text-4xl mb-6">
+                            <i class='bx bx-customize'></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Protocolos Personalizados</h3>
+                        <p class="text-gray-600">
+                            Desenvolvimento de metodologias específicas para suas necessidades.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Quem Somos -->
+        <section id="about" class="section py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1">
+                        <span class="text-primary font-semibold">QUEM SOMOS</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">Inovação em Microbiologia Agrícola</h2>
+                        <div class="w-20 h-1 bg-primary mb-6"></div>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">Nossa História</h3>
+                                <p class="text-gray-600">
+                                    Fundada por especialistas em biotecnologia, a BioProspecta transforma a interação com microrganismos do solo através de pesquisa e inovação.
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">Nossa Missão</h3>
+                                <p class="text-gray-600">
+                                    Desenvolver soluções biotecnológicas que promovam a saúde do solo, aumentem a produtividade agrícola e contribuam para a sustentabilidade ambiental.
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">Nossa Visão</h3>
+                                <p class="text-gray-600">
+                                    Ser referência global em bioprospecção, fornecendo soluções que atendam às necessidades atuais preservando o meio ambiente para futuras gerações.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-1 md:order-2">
+                        <div class="bg-gray-100 rounded-xl p-2 shadow-inner">
+                            <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden">
+                                <!-- Placeholder para imagem -->
+                                <div class="w-full h-full flex items-center justify-center text-gray-400">
+                                    <i class='bx bx-lab-test text-8xl'></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contact" class="section py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="text-primary font-semibold">CONTATO</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">Entre em Contato</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto mt-6">
+                        Estamos prontos para ajudar no seu projeto. Envie sua mensagem ou fale diretamente conosco.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <div class="bg-white rounded-xl p-8 shadow-md border border-gray-100">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6">Informações</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-primary text-2xl mr-4 mt-1">
+                                    <i class='bx bx-map'></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Endereço</h4>
+                                    <p class="text-gray-600 mt-1">
+                                        Biopark - PR-182, Toledo - PR<br>
+                                        CEP 85919-899
+                                    </p>
+                                    <a href="https://maps.google.com" target="_blank" class="text-primary hover:text-primary-light mt-3 inline-flex items-center font-medium">
+                                        <i class='bx bx-map mr-1'></i> Ver no mapa
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-primary text-2xl mr-4 mt-1">
+                                    <i class='bx bx-phone'></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Telefone</h4>
+                                    <p class="text-gray-600 mt-1">(45) 99138-8155</p>
+                                    <a href="tel:454991388155" class="text-primary hover:text-primary-light mt-3 inline-flex items-center font-medium">
+                                        <i class='bx bx-phone-call mr-1'></i> Ligar agora
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-primary text-2xl mr-4 mt-1">
+                                    <i class='bx bx-envelope'></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">E-mail</h4>
+                                    <p class="text-gray-600 mt-1">gabriel@bioprospectamicrobiologia.com.br</p>
+                                    <a href="mailto:gabriel@bioprospectamicrobiologia.com.br" class="text-primary hover:text-primary-light mt-3 inline-flex items-center font-medium">
+                                        <i class='bx bx-paper-plane mr-1'></i> Enviar e-mail
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-8 shadow-md border border-gray-100">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6">Mensagem</h3>
+                        <form class="space-y-5">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2 font-medium">Nome</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2 font-medium">E-mail</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-gray-700 mb-2 font-medium">Assunto</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 mb-2 font-medium">Mensagem</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="bg-primary hover:bg-primary-light text-white font-medium py-3 px-6 rounded-lg transition duration-300 w-full shadow-md hover:shadow-lg">
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <a href="#" class="flex items-center mb-4">
+                        <img src="./img/BioProspecta_monocromatica.png" alt="BioProspecta" class="h-30">
+                    </a>
+                    <p class="text-gray-400">
+                        Desenvolvendo soluções sustentáveis através da microbiologia para revolucionar a agricultura.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition scroll-smooth">Início</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition scroll-smooth">Serviços</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition scroll-smooth">Quem Somos</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition scroll-smooth">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl transition">
+                            <i class='bx bxl-facebook'></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl transition">
+                            <i class='bx bxl-instagram'></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl transition">
+                            <i class='bx bxl-linkedin'></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl transition">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold mt-6 mb-4">Newsletter</h4>
+                    <div class="flex">
+                        <input type="email" placeholder="Seu e-mail" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
+                        <button class="bg-primary hover:bg-primary-light text-white px-4 rounded-r-lg transition">
+                            <i class='bx bx-send'></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy;2025 - site desenvolvido por Huppers Soluções Inteligentes</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('hidden');
+            
+            if (isOpen) {
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            } else {
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            }
+        });
+
+        // Scroll suave e highlight de menu
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Fechar menu mobile se aberto
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                    
+                    // Scroll suave
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Highlight do menu ativo
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        function highlightMenu() {
+            const scrollPosition = window.scrollY;
+            
+            navLinks.forEach(link => {
+                const sectionId = link.getAttribute('href');
+                const section = document.querySelector(sectionId);
+                
+                if (section.offsetTop - 100 <= scrollPosition && 
+                    section.offsetTop + section.offsetHeight - 100 > scrollPosition) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', highlightMenu);
+        window.addEventListener('load', highlightMenu);
+
+        // Animação ao rolar
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Inicializa elementos como invisíveis
+        document.querySelectorAll('.animate-fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transition = 'opacity 0.8s ease-out';
+        });
+
+        document.querySelectorAll('.animate-slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.8s ease-out';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
